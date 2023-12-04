@@ -10,7 +10,7 @@ class ProductBody extends StatelessWidget {
 
     List Products = HomeCubit.get(context).products;
     return Container(
-      color: Colors.blueGrey,
+      color: const Color(0xffe5e5e5),
       child: GridView.count(
         childAspectRatio: 0.8,
         crossAxisCount: 2,

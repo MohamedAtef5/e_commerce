@@ -39,7 +39,7 @@ class ProductCard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 209, 193, 193),
+                     
                     ),
                     child: Text(
                       "price :${product.price} ",
@@ -52,7 +52,7 @@ class ProductCard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 209, 193, 193),
+                  
                     ),
                     child: Text(
                       "count :${product.count}",
@@ -81,7 +81,7 @@ class ProductCard extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(24, 24),
-                    backgroundColor: const Color.fromARGB(255, 209, 193, 193),
+                    backgroundColor: const  Color(0xfffca311),
                   ),
                   child: const Icon(
                     Icons.add,

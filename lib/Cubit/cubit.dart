@@ -87,6 +87,11 @@ class HomeCubit extends Cubit<HomeStates> {
       product.count++;
       product.amount--;
     }
+    if (product.amount == 0){
+      cartProducts.remove(product);
+      emit(HomeRemoveSeccessDataState());
+    }
     emit(HomeRemoveState());
   }
+
 }

@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
             appBar: AppBar(
               centerTitle: HomeCubit.get(context)
                   .centerTitle[HomeCubit.get(context).currentIndex],
-              backgroundColor: const Color.fromARGB(255, 209, 193, 193),
+              backgroundColor: const Color(0xff14213d),
               title: Text(
                 HomeCubit.get(context)
                     .title[HomeCubit.get(context).currentIndex],
@@ -35,6 +35,7 @@ class HomeView extends StatelessWidget {
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
+              selectedItemColor: const Color(0xff14213d),
               elevation: 200,
               type: BottomNavigationBarType.fixed,
               currentIndex: HomeCubit.get(context).currentIndex,

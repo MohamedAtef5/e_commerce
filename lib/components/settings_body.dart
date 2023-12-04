@@ -7,7 +7,7 @@ class SettingsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xfffafafa),
+      color: const Color(0xffe5e5e5),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

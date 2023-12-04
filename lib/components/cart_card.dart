@@ -38,7 +38,7 @@ class CartCard extends StatelessWidget {
                   children: [
                     Container(
                       decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 209, 193, 193),
+                       
                       ),
                       child: Text(
                         "price :${product.price} ",
@@ -50,10 +50,23 @@ class CartCard extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(
                         decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 209, 193, 193),
+                          
                         ),
                         child: Text(
                           "amount :${product.amount} ",
+                          style: const TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          
+                        ),
+                        child: Text(
+                          "count :${product.count} ",
                           style: const TextStyle(
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
