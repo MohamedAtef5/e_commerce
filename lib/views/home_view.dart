@@ -13,14 +13,26 @@ class HomeView extends StatelessWidget {
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (context, state) {},
         builder: (context, state) {
+          
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Color.fromARGB(255, 209, 193, 193),
+              centerTitle: HomeCubit.get(context)
+                  .centerTitle[HomeCubit.get(context).currentIndex],
+              backgroundColor: const Color.fromARGB(255, 209, 193, 193),
               title: Text(
                 HomeCubit.get(context)
                     .title[HomeCubit.get(context).currentIndex],
               ),
-              centerTitle: true,
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: !HomeCubit.get(context).centerTitle[HomeCubit.get(context).currentIndex]?Text(
+                    "Total Price: ${HomeCubit.totalprice}",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
+                  ) : Text(" "),
+                )
+              ],
             ),
             bottomNavigationBar: BottomNavigationBar(
               elevation: 200,

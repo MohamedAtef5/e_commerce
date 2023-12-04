@@ -9,14 +9,17 @@ class ProductBody extends StatelessWidget {
   Widget build(BuildContext context) {
 
     List Products = HomeCubit.get(context).products;
-    return GridView.count(
-      childAspectRatio: 0.8,
-      crossAxisCount: 2,
-      children: List.generate(Products.length, (index) {
-        return  ProductCard(
-          product: Products[index],
-        );
-      }),
+    return Container(
+      color: Colors.blueGrey,
+      child: GridView.count(
+        childAspectRatio: 0.8,
+        crossAxisCount: 2,
+        children: List.generate(Products.length, (index) {
+          return  ProductCard(
+            product: Products[index],
+          );
+        }),
+      ),
     );
   }
 }

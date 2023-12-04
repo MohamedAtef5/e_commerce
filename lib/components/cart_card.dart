@@ -10,49 +10,50 @@ class CartCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => HomeCubit(),
-      child: BlocConsumer<HomeCubit, HomeStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Card(
-            color: Colors.grey,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image(
-                    image: AssetImage(
-                      product.image,
-                    ),
+    return BlocBuilder<HomeCubit,HomeStates>(
+      builder:(context, state) {
+        return  Card(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                child: Image(
+                  image: AssetImage(
+                    product.image,
                   ),
                 ),
-                const Divider(
-                  thickness: 1,
-                ),
-                Row(
+              ),
+            ),
+            const Divider(
+              thickness: 1,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 209, 193, 193),
-                        ),
-                        child: Text(
-                          "price :${product.price} ",
-                          style: const TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 209, 193, 193),
+                      ),
+                      child: Text(
+                        "price :${product.price} ",
+                        style: const TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(top: 10),
                       child: Container(
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 209, 193, 193),
                         ),
                         child: Text(
-                          "count :${product.count} ",
+                          "amount :${product.amount} ",
                           style: const TextStyle(
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
@@ -60,36 +61,37 @@ class CartCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                Row(
+                Column(
                   children: [
-                    Column(
-                      children: [
-                        TextButton(
-                          child: const Text(
-                            "+",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          onPressed: () {},
-                        ),TextButton(
-                          child: const Text(
-                            "-",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          onPressed: () {},
-                        )
-                      ],
-                    )
+                    TextButton(
+                      child: const Text(
+                        "+",
+                        style: TextStyle(fontSize: 24, color: Colors.black),
+                      ),
+                      onPressed: () {
+                        HomeCubit.get(context).addAmount(product);
+                      },
+                    ),
+                    TextButton(
+                      child: const Text(
+                        "-",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.black,
+                        ),
+                      ),
+                      onPressed: () {
+                        HomeCubit.get(context).minusAmount(product);
+                      },
+                    ),
                   ],
                 )
               ],
             ),
-          );
-        },
-      ),
+          ],
+        ),
+      );
+      },
     );
   }
 }
