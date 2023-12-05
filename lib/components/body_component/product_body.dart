@@ -1,5 +1,5 @@
 import 'package:e_commerce/Cubit/cubit.dart';
-import 'package:e_commerce/components/card.dart';
+import 'package:e_commerce/components/widget/card.dart';
 import 'package:flutter/material.dart';
 
 class ProductBody extends StatelessWidget {

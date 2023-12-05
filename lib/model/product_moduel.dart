@@ -1,9 +1,9 @@
-class Product {
+class ProductModuel {
   final String image;
    int count;
   final double price;
   int amount = 0;
-   Product(
+   ProductModuel(
     this.image,
     this.count,
     this.price,

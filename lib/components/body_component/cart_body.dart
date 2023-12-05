@@ -1,6 +1,6 @@
 import 'package:e_commerce/Cubit/cubit.dart';
 import 'package:e_commerce/Cubit/states.dart';
-import 'package:e_commerce/components/cart_card.dart';
+import 'package:e_commerce/components/widget/cart_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

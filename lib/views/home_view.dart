@@ -27,7 +27,7 @@ class HomeView extends StatelessWidget {
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16),
                     )
-                  : Text(" "),
+                  : const Text(" "),
             )
           ],
         ),
@@ -61,6 +61,7 @@ class HomeView extends StatelessWidget {
           child:
               HomeCubit.get(context).body[HomeCubit.get(context).currentIndex],
         ),
+        
       );
     });
   }

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/Cubit/states.dart';
-import 'package:e_commerce/components/cart_body.dart';
-import 'package:e_commerce/components/product_body.dart';
-import 'package:e_commerce/components/settings_body.dart';
-import 'package:e_commerce/model/product.dart';
+import 'package:e_commerce/components/body_component/cart_body.dart';
+import 'package:e_commerce/components/body_component/product_body.dart';
+import 'package:e_commerce/components/body_component/settings_body.dart';
+import 'package:e_commerce/model/product_moduel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,15 +21,15 @@ class HomeCubit extends Cubit<HomeStates> {
     const Text(" ")
   ];
 
-  List<Product> cartProducts = [];
-  List<Product> products = [
-    Product("Assets/Images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg", 4, 200),
-    Product("Assets/Images/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg", 5, 350),
-    Product("Assets/Images/71li-ujtlUL._AC_UX679_.jpg", 1, 400),
-    Product("Assets/Images/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg", 2, 300),
-    Product("Assets/Images/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg", 9, 120),
-    Product("Assets/Images/71YXzeOuslL._AC_UY879_.jpg", 4, 75),
-    Product("Assets/Images/81fPKd-2AYL._AC_SL1500_.jpg", 3, 90),
+  List<ProductModuel> cartProducts = [];
+  List<ProductModuel> products = [
+    ProductModuel("Assets/Images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg", 4, 200),
+    ProductModuel("Assets/Images/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg", 5, 350),
+    ProductModuel("Assets/Images/71li-ujtlUL._AC_UX679_.jpg", 1, 400),
+    ProductModuel("Assets/Images/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg", 2, 300),
+    ProductModuel("Assets/Images/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg", 9, 120),
+    ProductModuel("Assets/Images/71YXzeOuslL._AC_UY879_.jpg", 4, 75),
+    ProductModuel("Assets/Images/81fPKd-2AYL._AC_SL1500_.jpg", 3, 90),
   ];
   List<Widget> body = const [
     ProductBody(),
@@ -51,7 +51,7 @@ class HomeCubit extends Cubit<HomeStates> {
     emit(TrastionState());
   }
 
-  void addToCart(Product product) {
+  void addToCart(ProductModuel product) {
     if (!cartProducts.contains(product) && product.price != 0) {
       cartProducts.add(product);
       product.count--;
@@ -61,17 +61,17 @@ class HomeCubit extends Cubit<HomeStates> {
     emit(HomeGetDataSuccessState());
   }
 
-  void setCount(Product product) {
+  void setCount(ProductModuel product) {
     product.count--;
     emit(UbdateCount());
   }
 
-  void updateTotal(Product product) {
+  void updateTotal(ProductModuel product) {
     totalprice += product.price;
     emit(UbdateTotalPrice());
   }
 
-  void addAmount(Product product) {
+  void addAmount(ProductModuel product) {
     if (product.count != 0) {
       totalprice += product.price;
       product.count--;
@@ -81,7 +81,7 @@ class HomeCubit extends Cubit<HomeStates> {
     emit(HomeRemoveSeccessDataState());
   }
 
-  void minusAmount(Product product) {
+  void minusAmount(ProductModuel product) {
     if (product.amount > 0) {
       totalprice -= product.price;
       product.count++;

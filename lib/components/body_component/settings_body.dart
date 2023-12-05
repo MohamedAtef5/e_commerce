@@ -1,4 +1,4 @@
-import 'package:e_commerce/components/setting_element.dart';
+import 'package:e_commerce/components/widget/setting_element.dart';
 import 'package:flutter/material.dart';
 
 class SettingsBody extends StatelessWidget {

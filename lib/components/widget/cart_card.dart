@@ -1,12 +1,12 @@
 import 'package:e_commerce/Cubit/cubit.dart';
 import 'package:e_commerce/Cubit/states.dart';
-import 'package:e_commerce/model/product.dart';
+import 'package:e_commerce/model/product_moduel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({super.key, required this.product});
-  final Product product;
+  final ProductModuel product;
 
   @override
   Widget build(BuildContext context) {
