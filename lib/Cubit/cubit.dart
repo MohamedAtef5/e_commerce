@@ -1,6 +1,7 @@
 
 import 'package:e_commerce/Cubit/states.dart';
 import 'package:e_commerce/components/body_component/cart_body.dart';
+import 'package:e_commerce/components/body_component/loading_body.dart';
 import 'package:e_commerce/components/body_component/product_body.dart';
 import 'package:e_commerce/components/body_component/settings_body.dart';
 import 'package:e_commerce/model/product_moduel.dart';
@@ -49,6 +50,13 @@ class HomeCubit extends Cubit<HomeStates> {
     false,
     true,
   ];
+ 
+  void loadProducts(){
+    emit(IntialState());
+    Future.delayed(const Duration(seconds: 2), () {
+      emit(HomeGetDataSuccessState());
+    });
+  }
   void tap(int index) {
     currentIndex = index;
     emit(TrastionState());
@@ -96,4 +104,5 @@ class HomeCubit extends Cubit<HomeStates> {
     }
     emit(HomeRemoveState());
   }
+
 }

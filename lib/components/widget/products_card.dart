@@ -73,20 +73,6 @@ class ProductCard extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-                // ElevatedButton(
-                //   onPressed: () {
-                //     HomeCubit.get(context).addToCart(product);
-
-                   
-                //   },
-                //   style: ElevatedButton.styleFrom(
-                //     minimumSize: const Size(10, 30),
-                //     backgroundColor: const  Color(0xfffca311),
-                //   ),
-                //   child: const Icon(
-                //     Icons.add_shopping_cart,
-                //   ),
-                // ),
                 IconButton(onPressed:(){
                    HomeCubit.get(context).addToCart(product);
                 } , icon: const Icon(
