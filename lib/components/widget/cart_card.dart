@@ -18,7 +18,7 @@ class CartCard extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: 100,
                 child: Image(
@@ -41,7 +41,7 @@ class CartCard extends StatelessWidget {
                        
                       ),
                       child: Text(
-                        "price :${product.price} ",
+                        "price :${product.price} \$ ",
                         style: const TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
                       ),

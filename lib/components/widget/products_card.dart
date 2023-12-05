@@ -42,7 +42,7 @@ class ProductCard extends StatelessWidget {
                      
                     ),
                     child: Text(
-                      "price :${product.price} ",
+                      "price :${product.price} \$",
                       style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),

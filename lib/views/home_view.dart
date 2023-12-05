@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
                 child: !HomeCubit.get(context)
                         .centerTitle[HomeCubit.get(context).currentIndex]
                     ? Text(
-                        "Total Price: ${HomeCubit.totalprice}",
+                        "Total Price: ${HomeCubit.totalprice} \$",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       )

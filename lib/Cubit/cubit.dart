@@ -1,7 +1,5 @@
-
 import 'package:e_commerce/Cubit/states.dart';
 import 'package:e_commerce/components/body_component/cart_body.dart';
-import 'package:e_commerce/components/body_component/loading_body.dart';
 import 'package:e_commerce/components/body_component/product_body.dart';
 import 'package:e_commerce/components/body_component/settings_body.dart';
 import 'package:e_commerce/model/product_moduel.dart';
