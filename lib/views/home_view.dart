@@ -47,12 +47,12 @@ class HomeView extends StatelessWidget {
                 label: "products"),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.production_quantity_limits,
+                  Icons.shopping_cart_outlined,
                 ),
                 label: "cart"),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.settings,
+                  Icons.settings_outlined,
                 ),
                 label: "setting"),
           ],

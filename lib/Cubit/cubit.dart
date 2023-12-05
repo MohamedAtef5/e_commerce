@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+
 import 'package:e_commerce/Cubit/states.dart';
 import 'package:e_commerce/components/body_component/cart_body.dart';
 import 'package:e_commerce/components/body_component/product_body.dart';
@@ -16,7 +16,10 @@ class HomeCubit extends Cubit<HomeStates> {
     const Text(" "),
     Text(
       "Total Price: $totalprice",
-      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
     ),
     const Text(" ")
   ];
@@ -87,11 +90,10 @@ class HomeCubit extends Cubit<HomeStates> {
       product.count++;
       product.amount--;
     }
-    if (product.amount == 0){
+    if (product.amount == 0) {
       cartProducts.remove(product);
       emit(HomeRemoveSeccessDataState());
     }
     emit(HomeRemoveState());
   }
-
 }
