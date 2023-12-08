@@ -24,7 +24,7 @@ class ProductCard extends StatelessWidget {
                 height: 100 ,
                 width: double.infinity,
                 child: Image(
-                  image: AssetImage(
+                  image: NetworkImage(
                     product.image,
                   ),
                 ),
@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
             const Divider(
               thickness: 1,
             ),
-            Row(
+            Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -65,6 +65,7 @@ class ProductCard extends StatelessWidget {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Padding(
                   padding: EdgeInsets.all(8.0),

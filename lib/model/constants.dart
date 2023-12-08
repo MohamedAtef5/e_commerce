@@ -1,0 +1,1 @@
+const String apiPathConst = 'https://fakestoreapi.com/products';

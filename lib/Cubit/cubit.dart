@@ -2,6 +2,7 @@ import 'package:e_commerce/Cubit/states.dart';
 import 'package:e_commerce/components/body_component/cart_body.dart';
 import 'package:e_commerce/components/body_component/product_body.dart';
 import 'package:e_commerce/components/body_component/settings_body.dart';
+import 'package:e_commerce/data/remotly_data/api_helper.dart';
 import 'package:e_commerce/model/product_moduel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,15 +25,7 @@ class HomeCubit extends Cubit<HomeStates> {
   ];
 
   List<ProductModuel> cartProducts = [];
-  List<ProductModuel> products = [
-    ProductModuel("Assets/Images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg", 4, 200),
-    ProductModuel("Assets/Images/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg", 5, 350),
-    ProductModuel("Assets/Images/71li-ujtlUL._AC_UX679_.jpg", 1, 400),
-    ProductModuel("Assets/Images/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg", 2, 300),
-    ProductModuel("Assets/Images/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg", 9, 120),
-    ProductModuel("Assets/Images/71YXzeOuslL._AC_UY879_.jpg", 4, 75),
-    ProductModuel("Assets/Images/81fPKd-2AYL._AC_SL1500_.jpg", 3, 90),
-  ];
+  late List<ProductModuel> products ;
   List<Widget> body = const [
     ProductBody(),
     CartBody(),
@@ -49,11 +42,15 @@ class HomeCubit extends Cubit<HomeStates> {
     true,
   ];
  
-  void loadProducts(){
-    emit(IntialState());
-    Future.delayed(const Duration(seconds: 2), () {
+  void loadProducts()async{
+    emit(HomeGetDataLoadingState());
+    products = await ApiHelper.get().fetchDataFromAPI();
+    if (products.isNotEmpty){
       emit(HomeGetDataSuccessState());
-    });
+
+    }else {
+      emit(HomeGetDataErrorState());
+    }
   }
   void tap(int index) {
     currentIndex = index;

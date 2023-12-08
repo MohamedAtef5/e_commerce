@@ -22,7 +22,7 @@ class CartCard extends StatelessWidget {
                 width: double.infinity,
                 height: 100,
                 child: Image(
-                  image: AssetImage(
+                  image: NetworkImage(
                     product.image,
                   ),
                 ),

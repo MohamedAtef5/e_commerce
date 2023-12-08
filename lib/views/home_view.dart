@@ -10,9 +10,8 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeStates>(
       builder: (context, state) {
-        if(state is IntialState){
-
-        HomeCubit.get(context).loadProducts();
+        if (state is IntialState) {
+          HomeCubit.get(context).loadProducts();
         }
         return Scaffold(
           appBar: AppBar(
@@ -63,16 +62,27 @@ class HomeView extends StatelessWidget {
             ],
           ),
           body: Center(
-            child: (state is IntialState)
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                  
-                : HomeCubit.get(context)
-                    .body[HomeCubit.get(context).currentIndex],
+            child: body(context, state),
           ),
         );
       },
     );
+  }
+
+  Widget body(BuildContext context, HomeStates state) {
+    if (state is HomeGetDataLoadingState || state is IntialState) {
+      return const CircularProgressIndicator();
+    } else if (state is HomeGetDataSuccessState || state is TrastionState 
+    || state is UbdateCount || state is HomeRemoveSeccessDataState || state is HomeRemoveState || state is UbdateTotalPrice) {
+      return HomeCubit.get(context).body[HomeCubit.get(context).currentIndex];
+    } else if (state is HomeGetDataErrorState) {
+      return const Text(
+        "Error In Fetching Data",
+        style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+      );
+    }
+    else{
+      return const Text("Test");
+    }
   }
 }

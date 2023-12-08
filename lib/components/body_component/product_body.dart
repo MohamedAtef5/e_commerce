@@ -12,7 +12,7 @@ class ProductBody extends StatelessWidget {
     return Container(
       color: const Color(0xffe5e5e5),
       child: GridView.count(
-        childAspectRatio: 0.8,
+        childAspectRatio: 0.7,
         crossAxisCount: 2,
         children: List.generate(Products.length, (index) {
           return  ProductCard(

@@ -9,5 +9,5 @@ class HomeGetDataErrorState extends HomeStates{}
 class HomeRemoveSeccessDataState extends HomeStates{}
 class HomeRemoveState extends HomeStates{}
 class TrastionState extends HomeStates{}
-class TranstionErrorState extends HomeStates{}
+
 class UbdateTotalPrice extends HomeStates{}
